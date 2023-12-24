@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="JOHN CENA">
+    <meta name="description" content="this nigga took aaosn onsoznsjng">
+    <title>The Button</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .block {
+            display: block;
+            width: 200px; /* Adjust the width to your preference */
+            border-radius: 12px;
+            border: none;
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 20px; /* Add margin to the button for spacing */
+        }
+
+        .block:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        h1, p1, #clickCounter {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        p1 {
+            margin-top: 20px; /* Adjust the margin-top for the paragraph */
+        }
+
+        #clickCounter {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        html {
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Button</h1>
+    <div class="button-container">
+        <button type="button" class="block" onclick="handleClick()">Click Me</button>
+        <p1 id="p1Element">Do not press</p1>
+        <p id="clickCounter">Clicks: 0</p>
+    </div>
+
+    <script>
+        let clickCount = 0;
+
+        function handleClick() {
+            clickCount++;
+            document.getElementById('clickCounter').innerText = `Clicks: ${clickCount}`;
+
+            // Change the text dynamically every 5 clicks
+            if (clickCount % 10 === 0) {
+                updateP1Text();
+            }
+
+            // Check if click count is 500 and redirect
+            if (clickCount === 150) {
+                window.location.href = 'https://www.youtube.com/watch?v=BbeeuzU5Qc8&t=13s';
+            }
+
+            // Add your additional click handling logic here
+        }
+
+        function updateP1Text() {
+            let p1Element = document.getElementById('p1Element');
+            let messages = [
+                'This website is not done yet',
+                'Why are you here?',
+                'What are you trying to achieve',
+                'I am as bored as you are',
+                'Why do you keep clicking',
+                'Theres nothing that happens if you click',
+                'Its not like in 150 clicks something will happen or something',
+                'Message_no.8',
+                'This is annoying',
+                'Stop clicking'
+            ];
+
+            // Randomly select a message from the array
+            let randomIndex = Math.floor(Math.random() * messages.length);
+            p1Element.innerText = messages[randomIndex];
+        }
+    </script>
+</body>
+</html>
